@@ -18,17 +18,17 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // // server side logic is ok!
-  // const { name } = await (await fetch('https://swapi.dev/api/people/4')).json();
-  // console.log(`\x1b[31m\x1b[40m ${name}! \x1b[0m`);
+  // server side logic is ok
+  const { name } = await (await fetch('https://swapi.dev/api/people/4')).json();
+  console.log(`\x1b[31m\x1b[40m ${name}! \x1b[0m`);
 
-  // // but using headers() is not!
-  // const reqHeaders = headers();
-  // console.log(JSON.stringify({reqHeaders}));
+  // using headers() is also ok
+  const reqHeaders = headers();
+  console.log(JSON.stringify({reqHeaders}));
 
-  // // also cookies are not ok!
-  // const reqCookies = cookies();
-  // console.log(JSON.stringify({reqCookies}));
+  // using cookies() is ok too
+  const reqCookies = cookies();
+  console.log(JSON.stringify({reqCookies}));
 
   return (
     <html lang="en">
